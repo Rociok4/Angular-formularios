@@ -1,0 +1,105 @@
+<h2>Template: Básicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar()" 
+              #miFormulario="ngForm"
+              autocomplete="off">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+
+                    <input type="text"
+                           class="form-control"
+                           ngModel
+                           name="Nombre"
+                           placeholder="Nombre"
+                           required
+                           minlength="3">
+
+                    <span class="form-text text-danger"
+                          *ngIf="nombreValido()">
+                          Debe de ser mínimo de 3 letras</span>
+                </div>
+
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Apellidos</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           ngModel
+                           name="Apellidos"
+                           placeholder="Apellidos">
+                </div>
+
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Fecha de Nacimiento</label>
+                <div class="col-sm-9">
+                    <input type="date"
+                           class="form-control"
+                           ngModel
+                           name="Fecha"
+                           placeholder="Fecha de Nacimiento">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Teléfono</label>
+                <div class="col-sm-9">
+                    <input type="tel"
+                           class="form-control"
+                           ngModel
+                           name="Telefono"
+                           placeholder="Teléfono"
+                           required
+                           minlength="9">
+                           <span class="form-text text-danger"
+                                 *ngIf="numeroValido()">
+                                 Debe de ser de 9 dígitos</span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Ciudad</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           ngModel
+                           name="Ciudad"
+                           placeholder="Ciudad">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            [disabled]="miFormulario.invalid"
+                            class="btn btn-success float-end">
+                    Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{miFormulario.valid}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{miFormulario.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{miFormulario.touched}}</pre>
+
+        <span>Value</span>
+        <pre>{{miFormulario.value | json}}</pre>
+
+    </div>
+</div>

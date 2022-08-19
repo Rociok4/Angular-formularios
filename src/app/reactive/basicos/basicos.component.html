@@ -1,0 +1,97 @@
+<h2>Reactive: Básicos</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+
+                    <input type="text"
+                           class="form-control"
+                           formControlName="nombre"
+                           placeholder="Nombre">
+
+                    <span class="form-text text-danger"
+                          *ngIf="campoNoValido('nombre')" >
+                          Debe de ser mínimo de 3 letras
+                    </span>
+                </div>
+
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Apellidos</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           formControlName="apellidos"
+                           placeholder="Apellidos">
+                </div>
+
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Fecha de Nacimiento</label>
+                <div class="col-sm-9">
+                    <input type="date"
+                           class="form-control"
+                           formControlName="fecha"
+                           placeholder="Fecha de Nacimiento">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Teléfono</label>
+                <div class="col-sm-9">
+                    <input type="tel"
+                           class="form-control"
+                           formControlName="telefono"
+                           placeholder="Teléfono">
+                           <span class="form-text text-danger"
+                                 *ngIf="campoNoValido('telefono')">
+                                 Debe de ser de 9 dígitos</span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Ciudad</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           formControlName="ciudad"
+                           placeholder="Ciudad">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            class="btn btn-info float-end">
+                    Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{miFormulario.valid}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{miFormulario.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{miFormulario.touched}}</pre>
+
+        <span>Value</span>
+        <pre>{{miFormulario.value | json}}</pre>
+
+    </div>
+</div>
+
